@@ -14,11 +14,11 @@ extends layout
   
 block content
   h1.title= title
-  p(style="color: white;") #{msg}
+  p(style="color: rgb(32, 24, 44); font-weight: bold;") #{msg}
   form(action="/dept", method="post")
     input(type="search", name="searchdept" placeholder="Type Roll No.")
     input(type="submit" value="Department" class="dept")
-  p(style="color: lightblue;") #{msg1}
+  p(style="color: rgb(32, 24, 44); font-weight: bold;") #{msg1}
   script.
       $(function(){
         $('#searchbar').autocomplete({
