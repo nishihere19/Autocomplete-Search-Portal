@@ -1,0 +1,20 @@
+extends index
+
+block form
+	form(method="post", id="registerform", action="/register")
+		p
+			label Roll No.
+			input(type='text', id='rollno', name='rollno')
+		p
+			label First Name
+			input(type='text', id='firstname', name='firstname')
+		p
+			label Lastname
+			input(type='text', id='lastname', name='lastname')
+		p
+			label Department
+			input(type='text', id="department", name='department')
+		p
+			input(type='Submit')
+
+	

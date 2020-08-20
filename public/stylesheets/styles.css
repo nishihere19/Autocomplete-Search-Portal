@@ -1,0 +1,126 @@
+*
+{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: none;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background-size: cover;
+  background-position: center;
+
+  background-color: rgb(29, 28, 28);
+  color: rgb(206, 197, 197);
+  font-size: 1.5rem;
+  text-align: center;
+}
+a {
+  
+    color: #00B7FF;
+   
+    text-decoration: none;
+  }
+  a:hover{
+    color: aqua;
+    background-color: rgb(64, 122, 141);
+  }
+  input[type="submit"]:hover{
+    color: rgb(211, 197, 197);
+    background-color: rgb(64, 122, 141);
+  }
+  input[type="submit"]{
+    color: rgb(236, 228, 228);
+    background-color: #00B7FF;
+    height: 30px;
+    width: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  input[type="text"]{
+    height: 25px;
+    background-color: rgb(214, 206, 206);
+  }
+  input[type="search"]{
+    height: 30px;
+    width: 250px;
+    background-color: rgb(214, 206, 206);
+  }
+  input[type="text"]:hover{
+ 
+    background-color: rgb(255, 253, 253);
+  }
+  
+  span{
+    color: white;
+  }
+  
+  .nav{
+  
+    background-color: rgb(61, 58, 58);
+    
+    text-align: center;
+    height: 30px;
+  }
+  .nav ul{
+    display: inline-flex;
+    list-style: none;
+   
+    
+  }
+  .main-menu ul li{
+   width: 120px;
+   margin: 5px;
+   
+    
+  }
+  .nav ul li a{
+    margin-left:0;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+    
+  }
+  
+  
+  
+  .nav ul li .submenu{
+    display: none;
+  }
+  table{
+    width: 100%;
+  }
+  .nav ul li:hover{
+    display: block;
+    
+  
+  
+  }
+  .nav ul li:hover .submenu{
+    display: block;
+   position: absolute;
+  
+    
+    background-color:  rgb(51, 49, 49);
+  }
+  .nav ul li:hover .submenu li{
+   
+   width: inherit;
+    display: block;
+  
+   
+    border-bottom: 1px dotted white;
+    border-radius: 0;
+    text-align: center;
+  }
+  .nav ul li:hover .submenu .last{
+    border-bottom: none;
+  }
+  .nav ul li:hover .submenu:hover{
+    display: block;
+  }
+  .nav ul li:hover .submenu li a{
+    width: inherit;
+  }

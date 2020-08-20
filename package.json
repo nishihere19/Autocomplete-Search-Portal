@@ -1,0 +1,29 @@
+{
+  "name": "autocomplete-search-portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishihere19/Autocomplete-Search-Portal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishihere19/Autocomplete-Search-Portal/issues"
+  },
+  "homepage": "https://github.com/nishihere19/Autocomplete-Search-Portal#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jade": "^1.11.0",
+    "mongoose": "^5.10.0",
+    "path": "^0.12.7"
+  }
+}
