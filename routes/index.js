@@ -24,7 +24,51 @@ router.post('/search',function(req,res){
 
 		}
 		else{
-			res.render("index",{title: "Welcome to NITT search portal!!", msg: "Roll No.:- "+user._doc.Roll_No+ " Name:- "+user._doc.firstname+" " +user._doc.lastname+ " Department:- "+ user._doc.department})
+			var val= fn.slice(0,3);
+			var dept;
+			if(val!=111){
+				//mech
+				if(val!=103){
+					//civil
+					if(val!=112){
+						//meta
+						if(val!=106){
+							//cs
+							if(val!=110){
+								//ice
+								if(val!=102){
+									//chemical
+									if(val!=107){
+										//eee
+										if(val!=108){
+											//ece
+											if(val!=114){
+												//prod
+											if(val!=101){
+												//archi
+												res.render(searchdept,{msg: "The department for this roll no. is not available!"});
+												return;
+											}
+											else dept="Architecture";
+											}
+											else dept="Production Engineering";
+										}
+										else dept ="Electronics and Communication Engineering";
+									}
+									else dept= "Electrical and Electronics Engineering";
+								}
+								else dept= "Chemical Engineering";
+							}
+							else dept= "Instrumentation and Control Engineering";
+						}
+						else dept="Computer Science and Engineering";
+					}
+					else dept= "Metallurgical and Materials Engineering";
+				}
+				else dept="Civil Engineering";
+			}
+			else dept= "Mechanical Engineering";
+			res.render("searchform",{ roll: " Roll No.:- "+user._doc.Roll_No,name: " Name:- "+user._doc.firstname+" " +user._doc.lastname,dept: " Department:- "+dept})
 		}
 	})
 })
@@ -88,23 +132,56 @@ router.get('/dept',function(req,res){
 })
 router.post('/dept', function(req,res){
     var rollno= req.body.searchdept;
-	
-	var dept;
-	
-    User.findOne({Roll_No: rollno},(err,dept)=>{
-        if(err){
-            console.log(err);
-            res.redirect('/');
-            return;
-		}
-		if(!dept){
-			res.render('index',{title: 'Welcome to NITT search portal!!' , msg1: "This record does not exist, check for correct Roll No.",msg: ""})
+	if(rollno.length!=9){
+		res.render('searchdept',{msg: "The Roll No. entered should be 9 digits!"});
 		return;
+	}
+	var dept;
+	var val=rollno.slice(0,3);
+	if(val!=111){
+		//mech
+		if(val!=103){
+			//civil
+			if(val!=112){
+				//meta
+				if(val!=106){
+					//cs
+					if(val!=110){
+						//ice
+						if(val!=102){
+							//chemical
+							if(val!=107){
+								//eee
+								if(val!=108){
+									//ece
+									if(val!=114){
+										//prod
+                                    if(val!=101){
+										//archi
+										res.render(searchdept,{msg: "The department for this roll no. is not available!"});
+										return;
+									}
+									else dept="Architecture";
+									}
+									else dept="Production Engineering";
+								}
+								else dept ="Electronics and Communication Engineering";
+							}
+							else dept= "Electrical and Electronics Engineering";
+						}
+						else dept= "Chemical Engineering";
+					}
+					else dept= "Instrumentation and Control Engineering";
+				}
+				else dept="Computer Science and Engineering";
+			}
+			else dept= "Metallurgical and Materials Engineering";
 		}
-	   dept=dept._doc.department;
-	   //console.log("dept", dept);
-	   res.render('index',{title: 'Welcome to NITT search portal!!' , msg1: "The department of Roll No." +rollno+" is " +dept+ "",msg: "", rollno: rollno})
-    })
+		else dept="Civil Engineering";
+	}
+	else dept= "Mechanical Engineering";
+	   res.render('searchdept',{ msg: "The department of Roll No." +rollno+" is " +dept+"."})
+
     
 })
 
@@ -112,6 +189,12 @@ router.post('/dept', function(req,res){
 /* GET registration form */
 router.get('/registerform', function(req, res, next){
 	res.render('registerform', { title: 'Welcome to NITT Search Portal!!' });
+})
+router.get('/searchform', function(req, res, next){
+	res.render('searchform');
+})
+router.get('/searchdept', function(req, res, next){
+	res.render('searchdept');
 })
 
 
@@ -124,31 +207,31 @@ router.get('/register',function(req,res){
 router.post('/register', function(req, res){
 	var rollno = req.body.rollno;
 	var roll=req.body.rollno;
-	roll=parseInt(roll);
-	if(roll<111111111||roll>999999999){
+	//roll=parseInt(roll);
+	if(rollno.length!=9){
 		
-		res.render('index',{title:"Welcome to NITT Search Portal", msg: "This Roll No. is not 9-digits, put correct roll no."})
+		res.render('registerform',{ msg: "This Roll No. is not 9-digits, put correct roll no."})
 	 return;
 	}
 
-	var department = req.body.department;
+	
 	var firstname = req.body.firstname;
 	var lastname = req.body.lastname;
 
 	var newUser = new User();
 	newUser.Roll_No = rollno;
-	newUser.department = department;
+	
 	newUser.firstname = firstname;
 	newUser.lastname = lastname;
 
 	newUser.save(function(err, savedUser){
 		if (err){
 			console.log(err);
-			res.render('registerform',{title:"Welcome to NITT search portal",msg: "This Roll No. cannot be registered"});
+			res.render('registerform',{msg: "This Roll No. cannot be registered"});
 		}
 		console.log(savedUser);
 	
-		return res.status(200).render("index", {title: 'Welcome to NITT search portal!!' ,msg1:"", msg: "Registered Successfully"});
+		return res.status(200).render("index", {title: "Registered Successfully"});
     });
 
 

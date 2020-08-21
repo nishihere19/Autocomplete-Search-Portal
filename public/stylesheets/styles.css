@@ -24,6 +24,7 @@ a {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
+ 
   }
   a:hover{
     background-color: #4e4d50;
@@ -71,9 +72,7 @@ input[type="submit"]:active {
   }
   
   .nav{
-  
     background-color: rgb(61, 58, 58);
-    
     text-align: center;
     height: 30px;
   }
@@ -84,10 +83,10 @@ input[type="submit"]:active {
     
   }
   .main-menu ul li{
-   width: 120px;
+   
    margin: 5px;
    
-    
+   text-align: center;
   }
   .nav ul li a{
     margin-left:0;
@@ -102,30 +101,18 @@ input[type="submit"]:active {
   .nav ul li .submenu{
     display: none;
   }
-  table{
-    width: 100%;
-  }
   .nav ul li:hover{
     display: block;
-    
-  
-  
   }
   .nav ul li:hover .submenu{
     display: block;
    position: absolute;
-  
-    
     background-color:  rgb(51, 49, 49);
   }
   .nav ul li:hover .submenu li{
    
-   width: inherit;
-    display: block;
   
-   
-    border-bottom: 1px dotted white;
-    border-radius: 0;
+    display: block;
     text-align: center;
   }
   .nav ul li:hover .submenu .last{
@@ -134,9 +121,6 @@ input[type="submit"]:active {
   .nav ul li:hover .submenu:hover{
     display: block;
   }
-  .nav ul li:hover .submenu li a{
-    width: inherit;
-  }
-  .dept{
-    width: 200px;
-  }
+  
+  
+  

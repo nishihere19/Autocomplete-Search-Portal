@@ -7,42 +7,14 @@ extends layout
         li
           a(href='registerform') Register
         li
-          form(action="/search", method="post")
-            input(type="search", name="searchbar" id="searchbar" placeholder="Enter roll no. or name")
-            input(type="submit", value="Search")
+          a(href='/') Search
+          ul.submenu
+            li
+              a(href='/searchform') Name/Roll No
+            li
+              a(href='/searchdept') Department
         
   
-block content
+block main-content
   h1.title= title
   p(style="color: rgb(32, 24, 44); font-weight: bold;") #{msg}
-  form(action="/dept", method="post")
-    input(type="search", name="searchdept" placeholder="Type Roll No.")
-    input(type="submit" value="Department" class="dept")
-  p(style="color: rgb(32, 24, 44); font-weight: bold;") #{msg1}
-  script.
-      $(function(){
-        $('#searchbar').autocomplete({
-          //console.log("w");
-          source: function(req,res){
-            $.ajax({
-              url:"/autocomplete",
-              dataType:"jsonp",
-              type: "GET",
-              data: req,
-              success: function(data){
-                res(data);
-              },
-              error: function(err){
-                console.log(err);
-              }
-            });
-          },
-          minLength:1,
-          select: function(event,ui){
-            if(ui.item){
-              $('#searchbar').text(ui.item.label);
-            }
-          }
-        })
-      });
-  block form

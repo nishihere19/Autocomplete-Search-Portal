@@ -1,5 +1,11 @@
 extends index
-
+.nav
+	block nav
+		ul.main-menu
+			li
+				a(href="/") Home
+block main-content
+	p(style="color: rgb(32, 24, 44); font-weight: bold;") #{msg}
 block form
 	form(method="post", id="registerform", action="/register")
 		p
@@ -11,9 +17,6 @@ block form
 		p
 			label Lastname
 			input(type='text', id='lastname', name='lastname')
-		p
-			label Department
-			input(type='text', id="department", name='department')
 		p
 			input(type='Submit')
 
